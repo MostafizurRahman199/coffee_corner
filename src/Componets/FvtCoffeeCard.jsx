@@ -1,19 +1,26 @@
+// import React from 'react'
+
+// export default function FvtCoffeeCard() {
+//   return (
+//     <div>FvtCoffeeCard</div>
+//   )
+// }
+
+
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom';
+import { removeFromLocalStorage } from '../utils/storeCardToLocal';
 
-export default function Card({coffee}) {
+export default function FvtCoffeeCard({coffee}) {
 
     const {
         id,
         name,
         image,
         category,
-        ingredients,
-        nutrition_info,
-        origin,
-        type,
+       
         description,
-        making_process,
+       
         rating,
         popularity
       } = coffee;
@@ -22,8 +29,11 @@ export default function Card({coffee}) {
       const navigate = useNavigate();
       
   return (
- <Link to={`/coffees/${id}`}>
-    <div className="max-w-sm mx-auto bg-white shadow-lg rounded-lg overflow-hidden flex flex-col transition-all transform hover:scale-105 duration-300">
+
+    <div className="relative max-w-sm mx-auto bg-white shadow-lg rounded-lg  flex flex-col transition-all transform hover:scale-105 duration-300">
+        <div className='absolute -top-5 -right-5 rounded-full w-fit'>
+            <button onClick={()=>removeFromLocalStorage(id)} className='btn rounded-full w-fit'>❌</button>
+        </div>
     <img
       className="w-full h-48 object-cover"
       src={image}
@@ -42,13 +52,13 @@ export default function Card({coffee}) {
       </div>
   
       <div className="mt-auto"> {/* This container pushes the button to the bottom */}
-        <button onClick={()=>navigate(`/coffees/${id}`)} className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition-colors duration-300 mt-6">
+        <button  onClick={()=>navigate(`/coffees/${id}`)} className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition-colors duration-300 mt-6">
           See in Details
         </button>
       </div>
     </div>
   </div>
- </Link>
+
   
   )
 }

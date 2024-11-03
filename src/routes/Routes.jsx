@@ -7,6 +7,7 @@ import Dashboard from "../pages/Dashboard";
 import Category from "../Componets/Home/Category";
 import CategoryCard from "../Componets/Home/CategoryCard";
 import Allcoffees from "../Componets/Home/Allcoffees";
+import CoffeeDetails from "../pages/CoffeeDetails";
 
 export const router = createBrowserRouter([
   {
@@ -25,8 +26,9 @@ export const router = createBrowserRouter([
                 },
                 {
                     path:"/",
-                    element:<Allcoffees/>,
+                    element:<CategoryCard/>,
                     loader:()=>fetch('../coffees.json'),
+                    
 
                 }
             ],
@@ -34,6 +36,13 @@ export const router = createBrowserRouter([
         {
             path:"/coffees",
             element:<Coffees/>,
+            loader:()=>fetch('../coffees.json'),
+        },
+        {
+            path:"/coffees/:id",
+            element:<CoffeeDetails/>,
+            loader:()=>fetch('../coffees.json'),
+            
         },
         {
             path:"/dashboard",

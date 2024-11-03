@@ -3,10 +3,7 @@ import React from 'react'
 export default function Banner() {
   return (
 <div
-  className="hero h-[600px] bg-[url('banner.jpg')]"
-  style={{
-    backgroundImage: "url('banner.jpg')",
-  }}>
+  className="hero h-[600px] bg-[url('./banner.jpg')]">
   <div className="hero-overlay bg-opacity-60"></div>
   <div className="hero-content text-neutral-content text-center">
     <div className="max-w-md">
