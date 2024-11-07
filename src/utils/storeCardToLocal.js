@@ -1,3 +1,5 @@
+import { toast } from "react-toastify";
+
 // Utility function to get items from local storage
 export const getItems = () => {
     // Retrieve the stored coffee data as a string
@@ -25,6 +27,7 @@ export const setItemToLocalStorage = (coffee) => {
     
     // Store the updated coffee array in local storage
     localStorage.setItem('coffee', newCoffeeString);
+    toast.success("Item added to dashboard");
 };
 
 
@@ -34,5 +37,6 @@ export const removeFromLocalStorage = (id)=>{
     const newCoffee = coffee.filter(item => item.id != id);
     const newCoffeeString = JSON.stringify(newCoffee);
     localStorage.setItem('coffee', newCoffeeString);
+    toast.warning("Item removed from dashboard");
 
 }

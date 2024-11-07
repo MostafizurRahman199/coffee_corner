@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom';
+import RatingChanged from '../ratingChanged';
 
 export default function Card({coffee}) {
 
@@ -20,6 +21,7 @@ export default function Card({coffee}) {
 
 
       const navigate = useNavigate();
+  
       
   return (
  <Link to={`/coffees/${id}`}>
@@ -37,7 +39,7 @@ export default function Card({coffee}) {
       <p className="text-gray-700 mt-3">{description}</p>
   
       <div className="mt-4 flex items-center justify-between">
-        <span className="text-yellow-500 font-semibold">⭐ {rating}</span>
+        <span className="text-yellow-500 font-semibold"><RatingChanged rating={rating}/> {rating}</span>
         <span className="text-gray-600">Popularity: {popularity}%</span>
       </div>
   
